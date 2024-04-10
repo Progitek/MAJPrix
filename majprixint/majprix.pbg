@@ -1,0 +1,10 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "majprix\\majprix.pbl" "";
+@end;
+@begin Objects
+ "majprix\\d_listeguide.srd" "majprix\\majprix.pbl";
+ "majprix\\p_majprix.srj" "majprix\\majprix.pbl";
+ "majprix\\majprix.sra" "majprix\\majprix.pbl";
+ "majprix\\w_majprix.srw" "majprix\\majprix.pbl";
+@end;
