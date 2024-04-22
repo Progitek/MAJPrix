@@ -449,10 +449,15 @@ end on
 event open;lnv_transweb = create transaction
 // Profile progitek_web
 lnv_transweb.DBMS = "OLE DB"
-lnv_transweb.LogPass = "10progitek01"
-lnv_transweb.LogId = "progitek"
 lnv_transweb.AutoCommit = False
-lnv_transweb.DBParm = "PROVIDER='SQLOLEDB',DATASOURCE='www.atmtech.biz',PROVIDERSTRING='database=progitek;'"
+
+// MAP 2024-04-22 DENT-2995 Modifier l'exécutable PB Mise_A_Jour_Prix via ProgitekUtility
+//lnv_transweb.LogPass = "10progitek01"
+//lnv_transweb.LogId = "progitek"
+// lnv_transweb.DBParm = "PROVIDER='SQLOLEDB',DATASOURCE='www.atmtech.biz',PROVIDERSTRING='database=progitek;'"
+lnv_transweb.LogPass = "VK59t6[(05QUbmcog1FrbNC]S"
+lnv_transweb.LogId = "sQdZJAkySsVu8u3h"
+lnv_transweb.DBParm = "PROVIDER='SQLOLEDB',DATASOURCE='legacy-guide.dentitek.ca',PROVIDERSTRING='database=progitek;'"
 
 connect using lnv_transweb;
 if lnv_transweb.sqlcode <> 0 then
