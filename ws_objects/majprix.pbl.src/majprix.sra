@@ -16,7 +16,26 @@ end variables
 
 global type majprix from application
 string appname = "majprix"
+string themepath = "C:\Program Files (x86)\Appeon\PowerBuilder 22.0\IDE\theme"
+string themename = "Do Not Use Themes"
+boolean nativepdfvalid = false
+boolean nativepdfincludecustomfont = false
+string nativepdfappname = ""
+long richtextedittype = 5
+long richtexteditx64type = 5
+long richtexteditversion = 3
+string richtexteditkey = ""
+string appicon = ""
 string appruntimeversion = "22.1.0.2828"
+boolean manualsession = false
+boolean unsupportedapierror = false
+boolean ultrafast = false
+boolean bignoreservercertificate = false
+uint ignoreservercertificate = 0
+long webview2distribution = 0
+boolean webview2checkx86 = false
+boolean webview2checkx64 = false
+string webview2url = "https://developer.microsoft.com/en-us/microsoft-edge/webview2/"
 end type
 global majprix majprix
 
@@ -40,7 +59,7 @@ end on
 event open;string ls_sql, ls_odbc, ls_filestring
 int li_filenum
 
-is_odbc = commandline
+is_odbc = Trim(commandline)
 //open(w_slapshot)
 
 SQLCA.DBMS       = 'ODBC'
@@ -61,13 +80,12 @@ if is_odbc = '' then
 	FileReadEx(li_FileNum, ls_filestring)
 	FileReadEx(li_FileNum, ls_filestring)
 	FileReadEx(li_FileNum, ls_filestring)
-	ls_odbc = trim(left(ls_filestring,20))
+	ls_odbc = trim(left(ls_filestring,25))
 	SQLCA.DbParm  = "ConnectString='DSN="+ ls_odbc +";UID=dba;PWD=ii4pr0g1+3k01',ConnectOption='SQL_DRIVER_CONNECT,SQL_DRIVER_NOPROMPT'"
 else
 	SQLCA.DbParm  = "ConnectString='DSN="+ is_odbc +";UID=dba;PWD=ii4pr0g1+3k01',ConnectOption='SQL_DRIVER_CONNECT,SQL_DRIVER_NOPROMPT'"
 end if
 //SQLCA.DbParm  = "ConnectString='DSN=dentitekdev;UID=dba;PWD=ii4clmam',ConnectOption='SQL_DRIVER_CONNECT,SQL_DRIVER_NOPROMPT'"
-
 
 connect using SQLCA;
 if sqlca.sqlcode <> 0 then
